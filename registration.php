@@ -1,7 +1,7 @@
 <?php
 require('dbconnect.php');
 require('auth.php');
-require('header.php');
+require('components/header.php');
 if ($_POST['login'] && $_POST['password']){
     switch ($_POST['role']) {
         case 'Host':
@@ -15,6 +15,6 @@ if ($_POST['login'] && $_POST['password']){
                 VALUES ('".$_POST['firstName']."','".$_POST['lastName']."', '".$_POST['login']."',
                 '".$_POST['password']."', '".$role."')");
 }
-require('registrationComponent.php');
+require('components/registrationComponent.php');
 
 

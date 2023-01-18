@@ -1,5 +1,5 @@
 <?php
 require('dbconnect.php');
 require('auth.php');
-require('header.php');
+require('components/header.php');
 require('main.php');
