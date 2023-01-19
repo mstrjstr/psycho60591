@@ -20,8 +20,13 @@
                                 <a href="../index.php" class="nav-link px-2 text-white">Главная</a>
                             </li>
                             <li><?php
-                                $res = $conn->query("SELECT * FROM users WHERE login='".$_POST['login']."'");
+                                if($_SESSION['user_type'] == 3) {
+                                    $res = $conn->query("SELECT * FROM client WHERE login='" . $_POST['login'] . "'");
+                                }
+                                if($_SESSION['user_type'] == 2){
+                                    $res = $conn->query("SELECT * FROM specialist WHERE login='" . $_POST['login'] . "'");
 
+                                }
                                 if ($_SESSION['username'] ) {
 
                                     echo('<li> <a href="Visits.php" class="nav-link px-2 text-white">Список записей</a></li>');
@@ -29,29 +34,29 @@
                                 ?>
 
                             </li>
-                            <?php
-                            $res = $conn->query("SELECT * FROM users WHERE login='".$_POST['login']."'");
 
-                            if ($_SESSION['username'] && ($_SESSION['role'] == 1 || $_SESSION['role'] == 2)) {
-
-                                echo('<li><a href="registerCompetition.php" class="nav-link px-2 text-white">Новая запись</a></li>');
-                            }
-                            ?>
                         </ul>
                         <?php
-                        $res = $conn->query("SELECT * FROM users WHERE login='".$_POST['login']."'");
+                        if($_SESSION['user_type'] == 3) {
+                            $res = $conn->query("SELECT * FROM client WHERE login='" . $_POST['login'] . "'");
+                        }
+                        if($_SESSION['user_type'] == 2){
+                            $res = $conn->query("SELECT * FROM specialist WHERE login='" . $_POST['login'] . "'");
+                        }
 
                         if ($_SESSION['username']) {
-                            $admin = $res->fetch();
+
                             echo ('<a href="login.php?logout=1" class="nav-link px-2 text-white">'.$_SESSION['username'].' (Выйти) </a>');
+                            echo ('<a href="delogin.php?" class="nav-link px-2 text-white">Удалить аккаунт </a>');
                         }
                         else {
                             echo ('<div class="text-end">
-                                <a href="../login.php"><button type="button" class="btn btn-outline-light me-2">Войти</button></a>
-                                <a href="../registration.php"><button type="button" class="btn btn-warning">Регистрация</button></a>
+                                <a href="../login.php"><button type="button" class="btn btn-outline-light me-1">Войти</button></a>
+                                <a href="../registration.php"><button type="button" class="btn btn-danger">Регистрация</button></a>
                                 </div>');
 
                         }
+
                         ?>
                     </nav>
                 </div>

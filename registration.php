@@ -2,6 +2,7 @@
 require('dbconnect.php');
 require('auth.php');
 require('components/header.php');
+
 if ($_POST['login'] && $_POST['password']){
     switch ($_POST['role']) {
         case 'Host':
@@ -11,10 +12,17 @@ if ($_POST['login'] && $_POST['password']){
             $role = 3;
             break;
     }
-    $result = $conn->query("INSERT INTO users(firstName, lastName, login, password, role)
-                VALUES ('".$_POST['firstName']."','".$_POST['lastName']."', '".$_POST['login']."',
+    if ($role == 3 ){
+    $result = $conn->query("INSERT INTO client(nme, phone_numb, login, password, role)
+                VALUES ('".$_POST['Name']."','".$_POST['Phone_numb']."', '".$_POST['login']."',
                 '".$_POST['password']."', '".$role."')");
 }
+    else if ($role == 2 ) {
+        $result = $conn->query("INSERT INTO specialist(nme, phone_numb, login, password, role)
+                VALUES ('" . $_POST['Name'] . "','" . $_POST['Phone_numb'] . "', '" . $_POST['login'] . "',
+                '" . $_POST['password'] . "', '".$role."')");
+    }
+    }
 require('components/registrationComponent.php');
 
 
