@@ -28,9 +28,14 @@
 
                                 }
                                 if ($_SESSION['username'] ) {
+                                     if($_SESSION['user_type'] == 3){
 
-                                    echo('<li> <a href="Visits.php" class="nav-link px-2 text-white">Список записей</a></li>');
+                                        echo('<li> <a href="Visits.php" class="nav-link px-2 text-white">Список записей</a></li>');
                                 }
+                                    if($_SESSION['user_type'] == 2){
+
+                                        echo('<li> <a href="Visits.php" class="nav-link px-2 text-white">Список приемов</a></li>');
+                                }}
                                 ?>
 
                             </li>
@@ -46,7 +51,7 @@
 
                         if ($_SESSION['username']) {
 
-                            echo ('<a href="login.php?logout=1" class="nav-link px-2 text-white">'.$_SESSION['username'].' (Выйти) </a>');
+                            echo ('<a href="login.php?logout=1" class="nav-link px-2 text-white">'.$_SESSION['user_name'].' (Выйти) </a>');
                             echo ('<a href="delogin.php?" class="nav-link px-2 text-white">Удалить аккаунт </a>');
                         }
                         else {
