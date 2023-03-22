@@ -16,9 +16,9 @@
             if($_SESSION['user_type'] == 3){
             if ($item['id_cli'] == $_SESSION['id_auth_user']){
                 if ($item1['id'] == $item['slot_id']){
-                    if($spec['id']==$item1['id_spec'] && $item1['id']==$item['slot_id'] ){
-                        $name=$spec['nme'];
-                    }
+
+                        $name=$conn->query("SELECT distinct specialist.nme FROM specialist, slot, Visit WHERE specialist.id = slot.id_spec AND slot.id = Visit.slot_id AND Visit.id = ".$item['id']);
+
 
 
                     ?>
@@ -28,9 +28,8 @@
                         <h6 class="mb-0">Дата записи: <?=$item1['day']?> </h6>
                         <p class="mb-0 opacity-75">Время начала встречи: <?=$item1['time_start']?> </p>
 
-                        <p class="mb-0 opacity-75">id специалистa: <?=$item1['id_spec']?> </p>
-                        <p class="mb-0 opacity-75">id слота: <?=$item['slot_id']?> </p>
-                        <p class="mb-0 opacity-75">ФИО специалиста: <?=$name?> </p>
+
+                        <p class="mb-0 opacity-75">ФИО специалиста: <?=$name->fetch()['nme']?> </p>
                     </div>
                     <img src="https://sun9-46.userapi.com/impg/dCBgBPx2KMijvCknZb8vkDovyYo8vAK42HrJoA/HK3rRdU-_DQ.jpg?size=1075x1080&quality=95&sign=6f2961280acced0ee645ce38cbd69133&type=album" alt="twbs" width="64" height="64">
 
