@@ -28,14 +28,18 @@
 
                                 }
                                 if ($_SESSION['username'] ) {
+
                                      if($_SESSION['user_type'] == 3){
 
                                         echo('<li> <a href="Visits.php" class="nav-link px-2 text-white">Список записей</a></li>');
+                                         echo('<li> <a href="appointment.php" class="nav-link px-2 text-white">Записаться на прием</a></li>');
                                 }
                                     if($_SESSION['user_type'] == 2){
 
                                         echo('<li> <a href="Visits.php" class="nav-link px-2 text-white">Список приемов</a></li>');
+                                        echo('<li> <a href="slotadd.php" class="nav-link px-2 text-white">Создать слот для записи</a></li>');
                                 }}
+
                                 ?>
 
                             </li>
