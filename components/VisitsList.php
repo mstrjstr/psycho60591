@@ -31,7 +31,7 @@
 
                         <p class="mb-0 opacity-75">ФИО специалиста: <?=$name->fetch()['nme']?> </p>
                     </div>
-                    <img src="https://sun9-46.userapi.com/impg/dCBgBPx2KMijvCknZb8vkDovyYo8vAK42HrJoA/HK3rRdU-_DQ.jpg?size=1075x1080&quality=95&sign=6f2961280acced0ee645ce38cbd69133&type=album" alt="twbs" width="64" height="64">
+
 
                 </div>
             </a>

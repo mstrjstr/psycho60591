@@ -16,6 +16,7 @@ if($_SESSION['user_type'] == 3)
 else if($_SESSION['user_type'] == 2)
 {
     $conn->query(" DELETE FROM specialist WHERE id='". $_SESSION['id_auth_user']."'");
+    $conn->query(" DELETE FROM slot WHERE id_spec='". $_SESSION['id_auth_user']."'");
     session_unset();
 }
 require('index.php');
