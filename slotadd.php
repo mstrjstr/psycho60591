@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 require('dbconnect.php');
 require('auth.php');
 require('components/header.php');
@@ -11,7 +8,7 @@ require('components/header.php');
 
             if ($file = fopen($_FILES['filename']['tmp_name'], 'r+')){
                 //получение расширения
-                $ext = explode('.', $_FILES["FileName"]["name"]);
+                $ext = explode('.', $_FILES["filename"]["name"]);
                 $ext = $ext[count($ext) - 1];
                 $filename = 'file' . rand(100000, 999999) . '.' . $ext;
 

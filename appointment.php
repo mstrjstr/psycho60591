@@ -28,6 +28,7 @@ while( $item1 = $slots->fetch()){
 
 
             </div>
+            <img src=<?=$item1['img_url']?>  height="100">
             <button href="slot.php?slotId=<?= $item1['id']?>" type="button" class="btn btn-warning"> Записаться</button>
         </div>
         </div>

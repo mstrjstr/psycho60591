@@ -5,6 +5,7 @@ use Aws\S3\S3Client;
 
 class S3FileUploader implements FileUploader
 {
+
     private S3Client $s3client;
     private S3ClientConfig $s3config;
 
