@@ -1,4 +1,5 @@
 <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,23 +9,21 @@
     <title>Document</title>
 </head>
 <body>
+<?php require ('src/Views/header.php');?>
 <h1>Сведения о пользователе:</h1>
 <ul>
-    <?php foreach ($data['users'] as $user): ?>
-        <li>
-            <?=$user->nme?>
+    <?=$data['user']->nme?>
+   <br>
+    <?php
+    switch($data['user']->role) {
 
-            <?php
-            switch($user->role) {
-                case 2:
-                    echo " - Специалист";
-                    break;
-                case 3:
-                    echo " - Клиент";
-                    break;
-            }?>
-        </li>
-    <?php endforeach; ?>
+        case 2:
+            echo " - Специалист";
+            break;
+        case 3:
+            echo " - Клиент";
+            break;
+    }?>
 
 </ul>
 </body>
