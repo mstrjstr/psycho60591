@@ -12,7 +12,7 @@
                 <label for="password" class="text-black">Пароль</label>
             </div>
 
-            <p><input type="submit" value="Войти" class="btn btn-lg btn-light"></p>
+            <p><input type="submit" value="Войти" class="btn btn-lg btn-warning"></p>
         </form>
         <a href="../registration.php"><button class="btn btn-lg btn-warning">Регистрация</button></a>
     </main>
